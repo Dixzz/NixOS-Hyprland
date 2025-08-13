@@ -94,13 +94,15 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
     #  thunderbird
+	xclip
 	neovim
 	zoxide
 	fish
 	gcc
 	tradingview
         asusctl
-    ];
+	vscode-fhs
+	];
   };
  
 services.supergfxd.enable = true;
@@ -116,6 +118,9 @@ services = {
      nerd-fonts._0xproto
 #    nerdfonts
   ];
+
+programs.nix-ld.enable = true;
+programs.nix-ld.libraries = [ pkgs.glibc ];
 
   # Enable automatic login for the user.
   services.displayManager.autoLogin.enable = true;
@@ -135,7 +140,7 @@ services = {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wget
+   wget
     git
     #gcc
     os-prober
