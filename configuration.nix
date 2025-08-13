@@ -94,15 +94,26 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
     #  thunderbird
-	#neovim
-	#zoxide
-	#tradingview
+	neovim
+	zoxide
+	fish
+	gcc
+	tradingview
+        asusctl
     ];
   };
+ 
+services.supergfxd.enable = true;
+services = {
+    asusd = {
+      enable = true;
+      enableUserService = true;
+    };
+};
 
   fonts.packages = with pkgs; [
-     nerd-fonts.fira-code
-#     nerd-fonts._0xproto
+#     nerd-fonts.fira-code
+     nerd-fonts._0xproto
 #    nerdfonts
   ];
 
