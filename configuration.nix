@@ -8,21 +8,39 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-#      <home-manager/nixos> 
+#      <home-manager/nixos>
     ];
 
   # Bootloader.
+  #boot.loader.systemd-boot.enable = true;
+  #boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.enable = false;
 
   boot.loader = {
     efi.canTouchEfiVariables = true;
     grub = {
       enable = true;
+      #devices = [ "/dev/sda2" ];  # Set the correct device here
       devices = [ "nodev" ];
       efiSupport = true;
       useOSProber = true;
     };
   };
+  #boot.loader.grub.grubGeneration = true;
+
+  hardware.graphics.enable = true;
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+
+  #programs.nix-ld.enable = true;
+  #programs.nix-ld.libraries = [ pkgs.glibc ];
+
+  programs.nix-ld = {
+    enable = true;
+    libraries = pkgs.steam-run.args.multiPkgs pkgs;
+  };
+
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -54,6 +72,43 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  services.xserver.videoDrivers = [
+    "modesetting"  # example for Intel iGPU; use "amdgpu" here instead if your iGPU is AMD
+    "nvidia"
+  ];
+
+
+  # Load nvidia driver for Xorg and Wayland
+  hardware.nvidia = {
+
+    # Modesetting is required.
+    modesetting.enable = true;
+
+    # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
+    # Enable this if you have graphical corruption issues or application crashes after waking
+    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead 
+    # of just the bare essentials.
+    powerManagement.enable = false;
+
+    # Fine-grained power management. Turns off GPU when not in use.
+    # Experimental and only works on modern Nvidia GPUs (Turing or newer).
+    powerManagement.finegrained = false;
+
+    # Use the NVidia open source kernel module (not to be confused with the
+    # independent third-party "nouveau" open source driver).
+    # Support is limited to the Turing and later architectures. Full list of 
+    # supported GPUs is at: 
+    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
+    # Only available from driver 515.43.04+
+    open = false;
+
+    # Enable the Nvidia settings menu,
+	# accessible via `nvidia-settings`.
+    nvidiaSettings = true;
+
+    # Optionally, you may need to select the appropriate driver version for your specific GPU.
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
@@ -94,33 +149,17 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
     #  thunderbird
-	xclip
-	neovim
-	zoxide
-	fish
-	gcc
-	tradingview
-        asusctl
-	vscode-fhs
-	];
+       asusctl
+       zoxide
+    ];
   };
- 
-services.supergfxd.enable = true;
-services = {
-    asusd = {
-      enable = true;
-      enableUserService = true;
-    };
-};
-
-  fonts.packages = with pkgs; [
-#     nerd-fonts.fira-code
-     nerd-fonts._0xproto
-#    nerdfonts
-  ];
-
-programs.nix-ld.enable = true;
-programs.nix-ld.libraries = [ pkgs.glibc ];
+  services.supergfxd.enable = true;
+  services = {
+      asusd = {
+        enable = true;
+        enableUserService = true;
+      };
+  };
 
   # Enable automatic login for the user.
   services.displayManager.autoLogin.enable = true;
@@ -131,20 +170,17 @@ programs.nix-ld.libraries = [ pkgs.glibc ];
   systemd.services."autovt@tty1".enable = false;
 
   # Install firefox.
-  programs.firefox.enable = true;
+  #programs.firefox.enable = true;
+
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-   wget
-    git
-    #gcc
-    os-prober
-    #fish
+  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+  #  wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -174,4 +210,8 @@ programs.nix-ld.libraries = [ pkgs.glibc ];
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
 
+#home-manager.users.fed = { pkgs, ... }: {
+#home.stateVersion = "25.05";  
+#home.packages = [ ];
+#  };
 }
