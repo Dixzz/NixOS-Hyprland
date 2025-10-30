@@ -4,6 +4,7 @@
   inputs = {
     #nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    zed-local.url = "path:/home/fed/zed-flake"; # local path to your zed flake
 
     #hyprland.url = "github:hyprwm/Hyprland"; # hyprland development
     #distro-grub-themes.url = "github:AdisonCavani/distro-grub-themes";
@@ -27,12 +28,13 @@
       self,
       nixpkgs,
       ags,
+      zed-local,
       ...
     }:
     let
       system = "x86_64-linux";
-      host = "default";
-      username = "dwilliams";
+      host = "hypo";
+      username = "fed";
 
       pkgs = import nixpkgs {
         inherit system;
@@ -58,6 +60,11 @@
             ./modules/fonts.nix # Fonts packages
             ./modules/portals.nix # portal
             ./modules/theme.nix # Set dark theme
+            {
+              environment.systemPackages = [
+                zed-local.packages.x86_64-linux.zed-latest
+              ];
+            }
           ];
         };
       };

@@ -79,13 +79,13 @@ fi
 echo "-----"
 
 # Create directory for the new hostname, unless the default is selected
-if [ "$hostName" != "default" ]; then
-  mkdir -p hosts/"$hostName"
-  cp hosts/default/*.nix hosts/"$hostName"
-  git add .
-else
-  echo "Default hostname selected, no extra hosts directory created."
-fi
+#if [ "$hostName" != "default" ]; then
+#  mkdir -p hosts/"$hostName"
+#  cp hosts/default/*.nix hosts/"$hostName"
+#  git add .
+#else
+#  echo "Default hostname selected, no extra hosts directory created."
+#fi
 
 # GPU/VM detection and toggles (operate on selected host)
 if type nhl_detect_gpu_and_toggle >/dev/null 2>&1; then

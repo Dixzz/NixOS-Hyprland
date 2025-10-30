@@ -16,7 +16,7 @@
       portalPackage = pkgs.xdg-desktop-portal-hyprland; # xdph none git
       xwayland.enable = true;
     };
-    zsh.enable = true;
+    zsh.enable = false;
     firefox.enable = true;
     waybar.enable = true;
     hyprlock.enable = true;
@@ -33,7 +33,7 @@
     nm-applet.indicator = true;
     neovim = {
       enable = true;
-      defaultEditor = false;
+      defaultEditor = true;
     };
 
     thunar.enable = true;
@@ -97,7 +97,8 @@
     dua
     duf
     cava
-    cargo
+    #cargo
+    rustup
     clang
     cmake
     cliphist
@@ -195,7 +196,7 @@
     ugrep
     unrar
     v4l-utils
-    obs-studio
+    #obs-studio
     zoxide
 
     # Hardware related
@@ -214,7 +215,7 @@
     nh
 
     # Internet
-    discord
+    #discord
 
     # Virtuaizaiton
     virt-viewer
