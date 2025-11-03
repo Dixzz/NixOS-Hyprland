@@ -141,10 +141,9 @@ in
   };
 
   # Set your time zone.
-  services.automatic-timezoned.enable = false; # based on IP location
+  services.automatic-timezoned.enable = true; # based on IP location
 
   #https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  #time.timeZone = "Asia/Kolkata"; # Set local timezone
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -219,7 +218,7 @@ in
       settings = {
         default_session = {
           user = username;
-          command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd Hyprland"; # start Hyprland with a TUI login manager
+          #command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd Hyprland"; # start Hyprland with a TUI login manager
         };
       };
     };

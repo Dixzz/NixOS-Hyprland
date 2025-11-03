@@ -16,7 +16,7 @@
       portalPackage = pkgs.xdg-desktop-portal-hyprland; # xdph none git
       xwayland.enable = true;
     };
-    zsh.enable = false;
+    zsh.enable = true;
     firefox.enable = true;
     waybar.enable = true;
     hyprlock.enable = true;
@@ -72,6 +72,7 @@
     hyprpolkitagent
     pyprland
     #uwsm
+    epiphany
     hyprlang
     hyprshot
     hyprcursor
@@ -196,7 +197,7 @@
     ugrep
     unrar
     v4l-utils
-    #obs-studio
+    obs-studio
     zoxide
 
     # Hardware related
@@ -222,11 +223,11 @@
     libvirt
 
     # Video
-    vlc
+    #vlc
 
     # Terminals
     kitty
-    wezterm
+    #wezterm
 
   ];
 

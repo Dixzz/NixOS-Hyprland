@@ -2,8 +2,8 @@
   description = "KooL's NixOS-Hyprland";
 
   inputs = {
-    #nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    #nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     zed-local.url = "path:/home/fed/zed-flake"; # local path to your zed flake
 
     #hyprland.url = "github:hyprwm/Hyprland"; # hyprland development

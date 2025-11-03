@@ -35,7 +35,7 @@ in
       ];
     };
     
-    defaultUserShell = pkgs.fish;
+    defaultUserShell = pkgs.zsh;
   }; 
   
   environment.shells = with pkgs; [ zsh ];
@@ -43,10 +43,10 @@ in
   
 programs = {
   # Disable zsh entirely
-  zsh.enable = false;
+  #zsh.enable = true;
 
   # Enable fish shell
-  fish = {
+  zsh = {
     enable = true;
 
     # Optional: add your own fish config
@@ -63,13 +63,13 @@ programs = {
   };
 };
   
-#  programs = {
- #   zsh = {
- #     ohMyZsh = {
- #       enable = true;
- #       theme = "agnoster";
- #       plugins = [ "git" ];
- #     };
- #   };
-#  };
+  programs = {
+   zsh = {
+      ohMyZsh = {
+        enable = true;
+        theme = "agnoster";
+        plugins = [ "git" ];
+      };
+    };
+  };
 }
