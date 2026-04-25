@@ -3,12 +3,19 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
+let
+  nixvim = import (builtins.fetchGit {
+    url = "https://github.com/nix-community/nixvim";
+    # If you are not running an unstable channel of nixpkgs, select the corresponding branch of Nixvim.
+    # ref = "nixos-25.11";
+  });
+in
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 #      <home-manager/nixos>
+      nixvim.nixosModules.nixvim
     ];
 
   # Bootloader.
@@ -27,11 +34,18 @@
     };
   };
   #boot.loader.grub.grubGeneration = true;
+  programs.nixvim.enable = true;
 
   hardware.graphics.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+
+  #fileSystems."/run/media/fed/DATA" = {
+  #  device = "/dev/sda1";
+  #  fsType = "ntfs"; # use kernel driver; change to "ntfs-3g" if you install ntfs-3g
+  #  options = [ "rw" "uid=1000" "gid=100" "umask=0022" ];
+  #};
 
   #programs.nix-ld.enable = true;
   #programs.nix-ld.libraries = [ pkgs.glibc ];
@@ -51,7 +65,9 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
+  
+  #services.thermald.enable = true;
+  
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
 
@@ -77,6 +93,29 @@
     "nvidia"
   ];
 
+  # --- Automounting and disk management ---
+  services.udisks2.enable = true;
+  services.gvfs.enable = true;      # for automount and trash support in Thunar
+  services.tumbler.enable = true;   # for thumbnails in Thunar
+
+  # --- File explorer ---
+  programs.thunar.enable = true;
+  programs.thunar.plugins = with pkgs.xfce; [ thunar-volman ];
+
+  # --- Polkit (permissions for non-root mounting) ---
+  security.polkit.enable = true;
+  security.polkit.extraConfig = ''
+    polkit.addRule(function(action, subject) {
+      if ((action.id == "org.freedesktop.udisks2.filesystem-mount-system" ||
+           action.id == "org.freedesktop.udisks2.filesystem-mount") &&
+          subject.isInGroup("wheel")) {
+        return polkit.Result.YES;
+      }
+    })
+  '';
+
+  #programs.waybar.enable = true;
+
 
   # Load nvidia driver for Xorg and Wayland
   hardware.nvidia = {
@@ -92,7 +131,7 @@
 
     # Fine-grained power management. Turns off GPU when not in use.
     # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-    powerManagement.finegrained = false;
+    powerManagement.finegrained = true;
 
     # Use the NVidia open source kernel module (not to be confused with the
     # independent third-party "nouveau" open source driver).
@@ -100,19 +139,34 @@
     # supported GPUs is at: 
     # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
     # Only available from driver 515.43.04+
-    open = false;
+    open = true;
 
     # Enable the Nvidia settings menu,
 	# accessible via `nvidia-settings`.
-    nvidiaSettings = true;
+    nvidiaSettings = false;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+
+    prime = {
+    offload.enable = true;
+    sync.enable = false;
+    intelBusId = "PCI:0:2:0";
+    nvidiaBusId = "PCI:1:0:0";
+
+    };
   };
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+
+  fonts.fonts = with pkgs; [
+    font-awesome_4
+
+             #pkgs.nerd-fonts._0xproto
+  ];
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -146,12 +200,15 @@
   users.users.fed = {
     isNormalUser = true;
     description = "fed";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "storage" "disk" ];
     packages = with pkgs; [
     #  thunderbird
        asusctl
        zoxide
+ #      rustup
+ #      (builtins.getFlake "/home/fed/zed-flake").packages.x86_64-linux.zed-latest
     ];
+    shell = pkgs.fish;
   };
   services.supergfxd.enable = true;
   services = {
@@ -179,9 +236,59 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    wl-clipboard 
+    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    fish
+    git
+    kitty
+    wget
+    #gnome-extension-manager
+
   ];
+
+
+  programs.fish.enable = true;
+  
+
+  # --- Kernel / memory tuning ---
+  boot.kernel.sysctl = {
+    "vm.swappiness" = 10;             # Prefer using RAM over swap (default ~60)
+    "vm.vfs_cache_pressure" = 50;     # Keep inode/dentry caches longer
+    "vm.dirty_ratio" = 10;            # Start writing dirty pages early
+    "vm.dirty_background_ratio" = 5;  # Keep background writes responsive
+  };
+
+  # --- CPU governor: keep performance up during compiles ---
+  #powerManagement = {
+  #  enable = true;
+  #  cpuFreqGovernor = "performance";  # Keeps CPU at full clock during build
+  #};
+
+  # --- I/O scheduler (for SSDs / NVMe, low latency) ---
+  #boot.kernelParams = [
+  #  "scsi_mod.use_blk_mq=1"
+  #  "dm_mod.use_blk_mq=1"
+  #  "queue_algorithm=none"
+  #];
+
+  # --- Optional: ZRAM or Swap tuning ---
+#  zramSwap = {
+#    enable = true;
+#    priority = 100;
+#    algorithm = "zstd";
+#    memoryPercent = 30;               # use 20% of RAM for fast compressed swap
+#  };
+
+
+  # --- Optional: make cargo build faster ---
+  #environment.sessionVariables = {
+  #  CARGO_BUILD_JOBS = "$(nproc)";       # Use all CPU cores
+  #  CARGO_TERM_PROGRESS_WHEN = "always"; # show progress bars
+  #  RUSTC_WRAPPER = "sccache";           # use compiler cache (if installed)
+  #};
+
+  # --- Optional compiler cache for Rust ---
+  #programs.sccache.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
