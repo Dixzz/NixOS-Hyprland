@@ -1,4 +1,4 @@
-# Edit this configuration file to define what should be installed on
+# ?Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
@@ -15,7 +15,7 @@ in
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 #      <home-manager/nixos>
-      nixvim.nixosModules.nixvim
+#      nixvim.nixosModules.nixvim
     ];
 
   # Bootloader.
@@ -34,9 +34,16 @@ in
     };
   };
   #boot.loader.grub.grubGeneration = true;
-  programs.nixvim.enable = true;
-
+ # programs.nixvim.enable = true;
   hardware.graphics.enable = true;
+  hardware.bluetooth.enable = true;
+  services.upower.enable = true;
+  services.power-profiles-daemon.enable = true;
+
+programs.niri = {
+  enable = true;
+  withUWSM = true;
+};
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -54,7 +61,6 @@ in
     enable = true;
     libraries = pkgs.steam-run.args.multiPkgs pkgs;
   };
-
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -163,9 +169,9 @@ in
   services.xserver.desktopManager.gnome.enable = true;
 
   fonts.fonts = with pkgs; [
-    font-awesome_4
+   # font-awesome_4
 
-             #pkgs.nerd-fonts._0xproto
+             pkgs.nerd-fonts._0xproto
   ];
 
   # Configure keymap in X11
@@ -214,20 +220,20 @@ in
   services = {
       asusd = {
         enable = true;
-        enableUserService = true;
+        #enableUserService = true; only in 25.05
       };
   };
 
   # Enable automatic login for the user.
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "fed";
+  #services.displayManager.autoLogin.enable = true;
+  #services.displayManager.autoLogin.user = "fed";
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
   # Install firefox.
-  #programs.firefox.enable = true;
+  programs.firefox.enable = true;
 
 
   # Allow unfree packages
@@ -242,8 +248,9 @@ in
     git
     kitty
     wget
+    noctalia-shell
     #gnome-extension-manager
-
+    uwsm
   ];
 
 
