@@ -42,9 +42,18 @@ in
 
 programs.niri = {
   enable = true;
-  withUWSM = true;
 };
 
+     programs.uwsm = {
+        enable = true;
+        waylandCompositors = { 
+          niri = {
+            prettyName = "Niri";
+            comment = "A scrollable-tiling Wayland compositor";
+            binPath = "/run/current-system/sw/bin/niri-session";
+          };
+        };
+      };
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 
@@ -71,7 +80,8 @@ programs.niri = {
 
   # Enable networking
   networking.networkmanager.enable = true;
-  
+
+  services.noctalia-shell.enable = true;  
   #services.thermald.enable = true;
   
   # Set your time zone.
@@ -242,20 +252,19 @@ programs.niri = {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    #noctalia-qs
+    noctalia-shell
     wl-clipboard 
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     fish
     git
     kitty
     wget
-    noctalia-shell
     #gnome-extension-manager
-    uwsm
   ];
 
 
   programs.fish.enable = true;
-  
 
   # --- Kernel / memory tuning ---
   boot.kernel.sysctl = {
@@ -279,12 +288,12 @@ programs.niri = {
   #];
 
   # --- Optional: ZRAM or Swap tuning ---
-#  zramSwap = {
-#    enable = true;
-#    priority = 100;
-#    algorithm = "zstd";
-#    memoryPercent = 30;               # use 20% of RAM for fast compressed swap
-#  };
+  zramSwap = {
+    enable = true;
+    priority = 100;
+    algorithm = "zstd";
+    memoryPercent = 30;               # use 20% of RAM for fast compressed swap
+  };
 
 
   # --- Optional: make cargo build faster ---
