@@ -269,8 +269,18 @@ in {
   };
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.gdm.enable = false;
   services.xserver.desktopManager.gnome.enable = false;
+
+  services.greetd = {
+    enable = true;
+
+    settings.default_session = {
+      user = "greeter";
+      #command = "${pkgs.tuigreet}/bin/tuigreet --sessions --cmd uwsm";
+      command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri-session";
+    };
+  };
 
   fonts.fonts = with pkgs; [
     # font-awesome_4

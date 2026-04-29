@@ -1,0 +1,95 @@
+2025-11-03 17:26:20.573 [info] Started local extension host with pid 2619.
+2025-11-03 17:26:21.536 [info] Settings Sync: Account status changed from uninitialized to unavailable
+2025-11-03 17:26:23.904 [info] [perf] Render performance baseline is 22ms
+2025-11-03 17:26:46.290 [warning] Settings pattern "mcp" doesn't match any settings
+2025-11-03 17:26:46.290 [warning] SettingsEditor2: Settings not included in settingsLayout.ts: github.copilot.chat.agent.terminal.allowList, github.copilot.chat.agent.terminal.denyList
+2025-11-03 17:26:47.687 [warning] Settings pattern "mcp" doesn't match any settings
+2025-11-03 17:27:52.711 [warning] Settings pattern "mcp" doesn't match any settings
+2025-11-03 17:28:06.436 [warning] Settings pattern "mcp" doesn't match any settings
+2025-11-03 17:28:30.988 [warning] Settings pattern "mcp" doesn't match any settings
+2025-11-03 17:28:32.508 [warning] Settings pattern "mcp" doesn't match any settings
+2025-11-03 17:28:52.050 [warning] Settings pattern "mcp" doesn't match any settings
+2025-11-03 17:28:54.852 [warning] Settings pattern "mcp" doesn't match any settings
+2025-11-03 17:28:58.501 [warning] Settings pattern "mcp" doesn't match any settings
+2025-11-03 17:29:05.087 [info] ChatSessionStore: Migrating 0 chat sessions from storage service to file system
+2025-11-03 17:29:05.230 [info] Started local extension host with pid 2947.
+2025-11-03 17:29:06.132 [info] Settings Sync: Account status changed from uninitialized to unavailable
+2025-11-03 17:29:07.848 [info] [perf] Render performance baseline is 22ms
+2025-11-03 17:29:11.227 [warning] Settings pattern "mcp" doesn't match any settings
+2025-11-03 17:29:11.227 [warning] SettingsEditor2: Settings not included in settingsLayout.ts: github.copilot.chat.agent.terminal.allowList, github.copilot.chat.agent.terminal.denyList
+2025-11-03 17:29:15.506 [warning] Settings pattern "mcp" doesn't match any settings
+2025-11-03 17:30:42.445 [warning] Settings pattern "mcp" doesn't match any settings
+2025-11-03 17:30:43.958 [warning] Settings pattern "mcp" doesn't match any settings
+2025-11-03 17:31:14.254 [warning] Settings pattern "mcp" doesn't match any settings
+2025-11-03 17:31:16.115 [warning] Settings pattern "mcp" doesn't match any settings
+2025-11-03 17:31:17.627 [warning] Settings pattern "mcp" doesn't match any settings
+2025-11-03 17:34:30.342 [error] [chat setup] signIn: error Error: Cancelled
+2025-11-03 17:35:02.452 [error] Extension 'github.copilot' wants API proposal 'devDeviceId' but that proposal DOES NOT EXIST. Likely, the proposal has been finalized (check 'vscode.d.ts') or was abandoned.
+2025-11-03 17:35:02.542 [warning] [GitHub.copilot]: Cannot register 'github.copilot.advanced'. This property is already registered.
+2025-11-03 17:35:16.163 [info] Extension host (LocalProcess pid: 2947) is unresponsive.
+2025-11-03 17:35:19.180 [error] [Extension Host] (node:2947) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `exe --trace-warnings ...` to show where the warning was created)
+2025-11-03 17:35:21.982 [info] UNRESPONSIVE extension host: starting to profile NOW
+2025-11-03 17:35:24.287 [warning] Failed to update in-progress status for chat session type 'claude-code': Can not find provider for claude-code
+2025-11-03 17:35:24.987 [info] Extension host (LocalProcess pid: 2947) is responsive.
+2025-11-03 17:35:24.991 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-11-03 17:35:27.622 [warning] UNRESPONSIVE extension host: 'github.copilot' took 67.56446413214246% of 1828.164ms, saved PROFILE here: 'file:///tmp/exthost-1788d3.cpuprofile'
+2025-11-03 17:35:28.655 [error] [Extension Host] Failed to load MSAL binary: Error: Cannot find module './msal-node-runtime'
+Require stack:
+- /nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/extensions/microsoft-authentication/dist/extension.js
+- /nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/api/node/extensionHostProcess.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1372:15)
+    at Module.n._resolveFilename (node:electron/js2c/utility_init:2:16249)
+    at Module.t._resolveFilename (file:///nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:209:22931)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1028:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1033:22)
+    at Module._load (node:internal/modules/cjs/loader:1182:37)
+    at Module.c._load (node:electron/js2c/node_init:2:17993)
+    at Module.e._load (file:///nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:391:5984)
+    at Module.t._load (file:///nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:209:22649)
+    at Module.r._load (file:///nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:201:25551)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:242:24)
+    at Module.require (node:internal/modules/cjs/loader:1452:12)
+    at Module.require (/home/fed/.vscode/extensions/github.copilot-chat-0.31.5/dist/extension.js:81:36096)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.7247 (/nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/extensions/microsoft-authentication/dist/extension.js:2:231600)
+    at n (/nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/extensions/microsoft-authentication/dist/extension.js:2:559324)
+    at Module.9020 (/nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/extensions/microsoft-authentication/dist/extension.js:2:526968)
+    at n (/nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/extensions/microsoft-authentication/dist/extension.js:2:559324)
+    at Object.6244 (/nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/extensions/microsoft-authentication/dist/extension.js:2:215773)
+    at n (/nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/extensions/microsoft-authentication/dist/extension.js:2:559324)
+    at Object.3226 (/nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/extensions/microsoft-authentication/dist/extension.js:2:129004)
+    at n (/nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/extensions/microsoft-authentication/dist/extension.js:2:559324)
+    at Object.2583 (/nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/extensions/microsoft-authentication/dist/extension.js:2:105051)
+    at n (/nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/extensions/microsoft-authentication/dist/extension.js:2:559324)
+    at Object.8428 (/nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/extensions/microsoft-authentication/dist/extension.js:2:452019)
+    at n (/nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/extensions/microsoft-authentication/dist/extension.js:2:559324)
+    at Object.5256 (/nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/extensions/microsoft-authentication/dist/extension.js:2:172891)
+    at n (/nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/extensions/microsoft-authentication/dist/extension.js:2:559324)
+    at /nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/extensions/microsoft-authentication/dist/extension.js:2:559691
+    at Object.<anonymous> (/nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/extensions/microsoft-authentication/dist/extension.js:2:559798)
+    at Module._compile (node:internal/modules/cjs/loader:1696:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1829:10)
+    at Module.load (node:internal/modules/cjs/loader:1430:32)
+    at Module._load (node:internal/modules/cjs/loader:1253:12)
+    at Module.c._load (node:electron/js2c/node_init:2:17993)
+    at Module.e._load (file:///nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:391:5984)
+    at Module.t._load (file:///nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:209:22649)
+    at Module.r._load (file:///nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:201:25551)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:242:24)
+    at Module.require (node:internal/modules/cjs/loader:1452:12)
+    at Module.require (/home/fed/.vscode/extensions/github.copilot-chat-0.31.5/dist/extension.js:81:36096)
+    at require (node:internal/modules/helpers:135:16)
+    at aJ.Cb (file:///nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:240:1253)
+2025-11-03 17:35:36.367 [error] An unknown error occurred. Please consult the log for more details.
+2025-11-03 17:35:52.250 [warning] Settings pattern "mcp" doesn't match any settings
+2025-11-03 17:35:52.371 [warning] Settings pattern "GitHub.copilot.manageExtension" doesn't match any settings
+2025-11-03 17:39:33.238 [warning] Semantic token with invalid length detected at lineNumber 260, column 1
+2025-11-03 17:42:50.764 [info] Extension host (LocalProcess pid: 2947) is unresponsive.
+2025-11-03 17:42:56.124 [info] Extension host (LocalProcess pid: 2947) is responsive.
+2025-11-03 17:42:56.124 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session
+2025-11-03 17:43:00.732 [info] Extension host (LocalProcess pid: 2947) is unresponsive.
+2025-11-03 17:43:15.795 [info] Extension host (LocalProcess pid: 2947) is responsive.
+2025-11-03 17:43:15.795 [info] UNRESPONSIVE extension host: received responsive event and cancelling profiling session

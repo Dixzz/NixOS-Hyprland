@@ -1,0 +1,16 @@
+2025-11-03 16:34:56.978 [info] ChatSessionStore: Migrating 0 chat sessions from storage service to file system
+2025-11-03 16:34:57.057 [info] Started local extension host with pid 8739.
+2025-11-03 16:34:57.200 [info] Started initializing default profile extensions in extensions installation folder. file:///home/fed/.vscode/extensions
+2025-11-03 16:34:57.236 [error] Error: Unable to read file '/home/fed/.vscode/extensions/prasanthrangan.wallbash/package.json' (Error: Unable to resolve nonexistent file '/home/fed/.vscode/extensions/prasanthrangan.wallbash/package.json')
+    at lSt.G (vscode-file://vscode-app/nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/workbench.desktop.main.js:3677:65941)
+    at lSt.F (vscode-file://vscode-app/nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/workbench.desktop.main.js:3677:65766)
+    at async lSt.D (vscode-file://vscode-app/nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/workbench.desktop.main.js:3677:65133)
+    at async QRe.u (vscode-file://vscode-app/nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/workbench.desktop.main.js:3687:23699)
+    at async QRe.scanExtension (vscode-file://vscode-app/nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/workbench.desktop.main.js:3687:22201)
+    at async Promise.all (index 0)
+    at async QRe.r (vscode-file://vscode-app/nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/workbench.desktop.main.js:3687:20624)
+    at async Dkt.scanAllUserExtensions (vscode-file://vscode-app/nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/workbench.desktop.main.js:3687:13468)
+    at async vscode-file://vscode-app/nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/workbench.desktop.main.js:3687:15412
+    at async Dkt.scanUserExtensions (vscode-file://vscode-app/nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/workbench.desktop.main.js:3687:13129)
+2025-11-03 16:34:57.293 [info] Completed initializing default profile extensions in extensions installation folder. file:///home/fed/.vscode/extensions
+2025-11-03 16:34:58.065 [info] Settings Sync: Account status changed from uninitialized to unavailable

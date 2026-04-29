@@ -1,0 +1,64 @@
+2025-11-03 17:26:24.331 [info] Extension host with pid 2619 started
+2025-11-03 17:26:24.392 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2025-11-03 17:26:24.516 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2025-11-03 17:26:24.551 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2025-11-03 17:26:24.699 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2025-11-03 17:26:24.828 [info] Eager extensions activated
+2025-11-03 17:26:24.829 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2025-11-03 17:26:24.866 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2025-11-03 17:26:46.297 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2025-11-03 17:27:37.081 [info] ExtensionService#_doActivateExtension rust-lang.rust-analyzer, startup: false, activationEvent: 'onWalkthrough:landing'
+2025-11-03 17:28:04.369 [info] ExtensionService#_doActivateExtension vscode.configuration-editing, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-11-03 17:28:04.400 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-11-03 17:28:04.534 [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-11-03 17:29:04.606 [info] Extension host terminating: renderer closed the MessagePort
+2025-11-03 17:29:04.616 [error] Canceled: Canceled
+	at new CR (file:///nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:115607)
+	at j4.U (file:///nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:120217)
+	at s.<computed>.n.charCodeAt.s.<computed> (file:///nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:29:117711)
+	at Kb.g (file:///nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:112:41045)
+	at Kb.executeCommand (file:///nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:112:40549)
+	at i.registerCommand.description (file:///nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:112:39879)
+	at Kb.h (file:///nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:112:41565)
+	at Kb.g (file:///nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:112:40642)
+	at Kb.executeCommand (file:///nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:112:40549)
+	at Object.executeCommand (file:///nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:199:103656)
+	at Ka (/home/fed/.vscode/extensions/rust-lang.rust-analyzer-0.3.2667-linux-x64/out/main.js:63:14957)
+	at Object.S2 (/home/fed/.vscode/extensions/rust-lang.rust-analyzer-0.3.2667-linux-x64/out/main.js:403:593)
+	at aJ.eb (file:///nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:116:11836)
+	at file:///nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:116:9986
+	at Array.map (<anonymous>)
+	at aJ.$ (file:///nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:116:9974)
+	at aJ.terminate (file:///nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:116:10217)
+	at RP.terminate (file:///nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:118:914)
+	at bs (file:///nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:391:10410)
+	at MessagePortMain.<anonymous> (file:///nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:391:6949)
+	at MessagePortMain.emit (node:events:518:28)
+	at MessagePortMain._internalPort.emit (node:electron/js2c/utility_init:2:2949)
+2025-11-03 17:29:04.617 [info] Extension host with pid 2619 exiting with code 0
+2025-11-03 17:29:05.777 [info] Extension host with pid 2947 started
+2025-11-03 17:29:05.777 [info] Skipping acquiring lock for /home/fed/.config/Code/User/workspaceStorage/d476dfd77ff594b5cd03fafbb8b1a21a.
+2025-11-03 17:29:05.860 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2025-11-03 17:29:05.889 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2025-11-03 17:29:05.969 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2025-11-03 17:29:05.971 [info] ExtensionService#_doActivateExtension rust-lang.rust-analyzer, startup: true, activationEvent: 'workspaceContains:Cargo.toml'
+2025-11-03 17:29:06.209 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2025-11-03 17:29:06.256 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2025-11-03 17:29:13.701 [info] ExtensionService#_doActivateExtension vscode.configuration-editing, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-11-03 17:29:13.707 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-11-03 17:29:13.769 [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2025-11-03 17:29:15.953 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2025-11-03 17:29:15.955 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2025-11-03 17:29:29.943 [info] Eager extensions activated
+2025-11-03 17:35:11.867 [info] ExtensionService#_doActivateExtension GitHub.copilot-chat, startup: false, activationEvent: 'onWalkthrough:copilotWelcome'
+2025-11-03 17:35:19.174 [info] ExtensionService#_doActivateExtension GitHub.copilot, startup: false, activationEvent: 'onStartupFinished'
+2025-11-03 17:35:27.766 [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication, startup: false, activationEvent: 'onAuthenticationRequest:microsoft'
+2025-11-03 17:35:29.922 [info] ExtensionService#_doActivateExtension vscode.extension-editing, startup: false, activationEvent: 'onLanguage:json'
+2025-11-03 17:35:32.237 [info] ExtensionService#_doActivateExtension vscode.npm, startup: false, activationEvent: 'onLanguage:json'
+2025-11-03 17:35:36.366 [error] Error: GitHubLoginFailed
+    at y9._authShowWarnings (/home/fed/.vscode/extensions/github.copilot-chat-0.31.5/dist/extension.js:949:16822)
+    at y9.getCopilotToken (/home/fed/.vscode/extensions/github.copilot-chat-0.31.5/dist/extension.js:949:15345)
+    at YG.getCopilotToken (/home/fed/.vscode/extensions/github.copilot-chat-0.31.5/dist/extension.js:485:25421)
+    at sE._fetchModels (/home/fed/.vscode/extensions/github.copilot-chat-0.31.5/dist/extension.js:2934:3968)
+    at sE.getAllChatModels (/home/fed/.vscode/extensions/github.copilot-chat-0.31.5/dist/extension.js:2934:2014)
+    at Bj.getAllChatEndpoints (/home/fed/.vscode/extensions/github.copilot-chat-0.31.5/dist/extension.js:2934:14863)

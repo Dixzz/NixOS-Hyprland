@@ -1,0 +1,25 @@
+[Added Associations]
+
+[Default Applications]
+application/javascript=code.desktop
+application/json=code.desktop
+application/x-shellscript=code.desktop
+application/xml=code.desktop
+inode/directory=org.kde.dolphin.desktop
+text/css=code.desktop
+text/markdown=code.desktop
+text/plain=code.desktop
+text/x-c++src=code.desktop
+text/x-csrc=code.desktop
+text/x-go=code.desktop
+text/x-java-source=code.desktop
+text/x-python=code.desktop
+text/x-typescript=code.desktop
+x-scheme-handler/about=org.kde.dolphin.desktop
+x-scheme-handler/file=org.kde.dolphin.desktop
+x-scheme-handler/http=org.gnome.Epiphany.desktop
+x-scheme-handler/https=org.gnome.Epiphany.desktop
+text/html=org.gnome.Epiphany.desktop
+application/xhtml+xml=org.gnome.Epiphany.desktop
+
+[Removed Associations]

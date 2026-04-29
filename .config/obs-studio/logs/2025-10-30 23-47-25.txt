@@ -1,0 +1,160 @@
+23:47:25.963: Platform: Wayland
+23:47:25.963: CPU Name: Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz
+23:47:25.963: CPU Speed: 4001.007MHz
+23:47:25.963: Physical Cores: 4, Logical Cores: 8
+23:47:25.963: Physical Memory: 15847MB Total, 9704MB Free
+23:47:25.963: Kernel Version: Linux 6.16.5-zen1
+23:47:25.963: Distribution: NixOS "25.11"
+23:47:25.963: Desktop Environment: Hyprland (Hyprland)
+23:47:25.963: Session Type: wayland
+23:47:25.965: Current Date/Time: 2025-10-30, 11:47:25 PM
+23:47:25.965: Browser Hardware Acceleration: true
+23:47:25.965: Qt Version: 6.9.2 (runtime), 6.9.2 (compiled)
+23:47:25.965: Portable mode: false
+23:47:26.013: OBS 31.1.2 (linux)
+23:47:26.013: ---------------------------------
+23:47:26.014: ---------------------------------
+23:47:26.014: audio settings reset:
+23:47:26.014: 	samples per sec: 48000
+23:47:26.014: 	speakers:        2
+23:47:26.014: 	max buffering:   960 milliseconds
+23:47:26.014: 	buffering type:  dynamically increasing
+23:47:26.015: ---------------------------------
+23:47:26.015: Initializing OpenGL...
+23:47:26.015: Using EGL/Wayland
+23:47:26.058: Initialized EGL 1.5
+23:47:26.072: Loading up OpenGL on adapter Intel Mesa Intel(R) UHD Graphics 630 (CFL GT2)
+23:47:26.072: OpenGL loaded successfully, version 4.6 (Core Profile) Mesa 25.2.3, shading language 4.60
+23:47:26.104: ---------------------------------
+23:47:26.104: video settings reset:
+23:47:26.104: 	base resolution:   1920x1080
+23:47:26.104: 	output resolution: 1280x720
+23:47:26.104: 	downscale filter:  Bicubic
+23:47:26.104: 	fps:               30/1
+23:47:26.104: 	format:            NV12
+23:47:26.104: 	YUV mode:          Rec. 709/Partial
+23:47:26.104: NV12 texture support enabled
+23:47:26.104: P010 texture support not available
+23:47:26.110: Audio monitoring device:
+23:47:26.110: 	name: Default
+23:47:26.110: 	id: default
+23:47:26.111: ---------------------------------
+23:47:26.118: Failed to load 'en-US' text for module: 'decklink-captions.so'
+23:47:26.124: Failed to load 'en-US' text for module: 'decklink-output-ui.so'
+23:47:26.129: A DeckLink iterator could not be created.  The DeckLink drivers may not be installed
+23:47:26.129: Failed to initialize module 'decklink.so'
+23:47:26.345: [pipewire] Available capture sources:
+23:47:26.345: [pipewire]     - Monitor source
+23:47:26.345: [pipewire]     - Window source
+23:47:26.365: v4l2loopback not installed, virtual camera not registered
+23:47:26.374: [obs-browser]: Version 2.25.3
+23:47:26.374: [obs-browser]: CEF Version 138.0.7204.97 (runtime), 138.0.17+gac9b751+chromium-138.0.7204.97 (compiled)
+23:47:26.386: LIBVA_DRIVER_NAME variable is set, this could prevent FFmpeg VAAPI from working correctly
+23:47:26.769: VAAPI: API version 1.22
+23:47:26.844: FFmpeg VAAPI H264 encoding supported
+23:47:27.124: FFmpeg VAAPI AV1 encoding supported
+23:47:27.381: FFmpeg VAAPI HEVC encoding supported
+23:47:27.412: [NVENC] Test process failed: nvenc_lib
+23:47:27.412: NVENC not supported
+23:47:27.412: Failed to initialize module 'obs-nvenc.so'
+23:47:28.490: [obs-websocket] [obs_module_load] you can haz websockets (Version: 5.6.2 | RPC Version: 1)
+23:47:28.490: [obs-websocket] [obs_module_load] Qt version (compile-time): 6.9.2 | Qt version (run-time): 6.9.2
+23:47:28.490: [obs-websocket] [obs_module_load] Linked ASIO Version: 102400
+23:47:28.490: DEPRECATION: obs_frontend_get_global_config is deprecated. Read from global or user configuration explicitly instead.
+23:47:28.494: [obs-websocket] [obs_module_load] Module loaded.
+23:47:28.526: [vlc-video]: VLC 3.0.21 Vetinari found, VLC video source enabled
+23:47:28.527: ---------------------------------
+23:47:28.527:   Loaded Modules:
+23:47:28.527:     vlc-video.so
+23:47:28.527:     text-freetype2.so
+23:47:28.527:     rtmp-services.so
+23:47:28.527:     obs-x264.so
+23:47:28.527:     obs-websocket.so
+23:47:28.527:     obs-webrtc.so
+23:47:28.527:     obs-vst.so
+23:47:28.527:     obs-transitions.so
+23:47:28.527:     obs-qsv11.so
+23:47:28.527:     obs-outputs.so
+23:47:28.527:     obs-libfdk.so
+23:47:28.527:     obs-filters.so
+23:47:28.527:     obs-ffmpeg.so
+23:47:28.527:     obs-browser.so
+23:47:28.527:     linux-v4l2.so
+23:47:28.527:     linux-pulseaudio.so
+23:47:28.527:     linux-pipewire.so
+23:47:28.527:     linux-jack.so
+23:47:28.527:     linux-capture.so
+23:47:28.527:     linux-alsa.so
+23:47:28.527:     image-source.so
+23:47:28.527:     frontend-tools.so
+23:47:28.527:     decklink-output-ui.so
+23:47:28.527:     decklink-captions.so
+23:47:28.527: ---------------------------------
+23:47:28.527: ---------------------------------
+23:47:28.527: Available Encoders:
+23:47:28.527:   Video Encoders:
+23:47:28.527: 	- ffmpeg_svt_av1 (SVT-AV1)
+23:47:28.527: 	- ffmpeg_aom_av1 (AOM AV1)
+23:47:28.527: 	- ffmpeg_vaapi_tex (FFmpeg VAAPI H.264)
+23:47:28.527: 	- av1_ffmpeg_vaapi_tex (FFmpeg VAAPI AV1)
+23:47:28.527: 	- hevc_ffmpeg_vaapi_tex (FFmpeg VAAPI HEVC)
+23:47:28.527: 	- obs_x264 (x264)
+23:47:28.527:   Audio Encoders:
+23:47:28.527: 	- ffmpeg_aac (FFmpeg AAC)
+23:47:28.527: 	- ffmpeg_opus (FFmpeg Opus)
+23:47:28.527: 	- ffmpeg_pcm_s16le (FFmpeg PCM (16-bit))
+23:47:28.527: 	- ffmpeg_pcm_s24le (FFmpeg PCM (24-bit))
+23:47:28.527: 	- ffmpeg_pcm_f32le (FFmpeg PCM (32-bit float))
+23:47:28.527: 	- ffmpeg_alac (FFmpeg ALAC (24-bit))
+23:47:28.527: 	- ffmpeg_flac (FFmpeg FLAC (16-bit))
+23:47:28.527: 	- libfdk_aac (libfdk AAC)
+23:47:28.527: ==== Startup complete ===============================================
+23:47:28.555: All scene data cleared
+23:47:28.555: ------------------------------------------------
+23:47:28.559: pulse-input: Server name: 'PulseAudio (on PipeWire 1.4.7) 15.0.0'
+23:47:28.559: pulse-input: Audio format: s32le, 48000 Hz, 2 channels
+23:47:28.559: pulse-input: Started recording from 'alsa_output.pci-0000_00_1f.3.analog-stereo.monitor' (default)
+23:47:28.559: [Loaded global audio device]: 'Desktop Audio'
+23:47:28.559: pulse-input: Server name: 'PulseAudio (on PipeWire 1.4.7) 15.0.0'
+23:47:28.559: pulse-input: Audio format: s32le, 48000 Hz, 2 channels
+23:47:28.560: pulse-input: Started recording from 'alsa_input.pci-0000_00_1f.3.analog-stereo' (default)
+23:47:28.560: [Loaded global audio device]: 'Mic/Aux'
+23:47:28.561: Switched to scene 'Scene'
+23:47:28.561: ------------------------------------------------
+23:47:28.561: Loaded scenes:
+23:47:28.561: - scene 'Scene':
+23:47:28.561: ------------------------------------------------
+23:47:29.172: adding 21 milliseconds of audio buffering, total audio buffering is now 21 milliseconds (source: Desktop Audio)
+23:47:29.172: 
+23:47:29.215: adding 21 milliseconds of audio buffering, total audio buffering is now 42 milliseconds (source: Mic/Aux)
+23:47:29.215: 
+23:48:17.088: virtual void QtWaylandClient::QWaylandTextInputv3::disableSurface(wl_surface*) Try to disable surface 0x2251da50 with focusing surface 0x249c70b0
+23:48:36.359: virtual void QtWaylandClient::QWaylandTextInputv3::disableSurface(wl_surface*) Try to disable surface 0x2251da50 with focusing surface 0x254d76f0
+23:48:38.647: v4l2-input: Start capture from 
+23:48:38.647: v4l2-input: Unable to open device
+23:48:38.647: v4l2-input: Initialization failed, errno: No such file or directory
+23:48:38.650: User added source 'Video Capture Device (V4L2)' (v4l2_input) to scene 'Scene'
+23:48:38.685: virtual void QtWaylandClient::QWaylandTextInputv3::disableSurface(wl_surface*) Try to disable surface 0x24a28910 with focusing surface 0x2251da50
+23:48:48.939: virtual void QtWaylandClient::QWaylandTextInputv3::disableSurface(wl_surface*) Try to disable surface 0x24a28910 with focusing surface 0x2251da50
+23:48:51.999: virtual void QtWaylandClient::QWaylandTextInputv3::disableSurface(wl_surface*) Try to disable surface 0x24a28910 with focusing surface 0x2251da50
+23:48:56.959: Failed to create popup. Ensure popup  QWidgetWindow(0x256d76f0, name="QRollEffectClassWindow") has a transientParent set.
+23:48:57.654: Failed to create popup. Ensure popup  QWidgetWindow(0x25557a80, name="QRollEffectClassWindow") has a transientParent set.
+23:48:59.927: virtual void QtWaylandClient::QWaylandTextInputv3::enableSurface(wl_surface*) Try to enable surface 0x256e7af0 with focusing surface 0x2251da50
+23:49:00.660: virtual void QtWaylandClient::QWaylandTextInputv3::enableSurface(wl_surface*) Try to enable surface 0x2251da50 with focusing surface 0x256e7af0
+23:49:00.963: virtual void QtWaylandClient::QWaylandTextInputv3::enableSurface(wl_surface*) Try to enable surface 0x256e7af0 with focusing surface 0x2251da50
+23:49:02.504: User added source 'VLC Video Source' (vlc_source) to scene 'Scene'
+23:49:02.537: virtual void QtWaylandClient::QWaylandTextInputv3::disableSurface(wl_surface*) Try to disable surface 0x25056ea0 with focusing surface 0x2251da50
+23:49:08.056: virtual void QtWaylandClient::QWaylandTextInputv3::disableSurface(wl_surface*) Try to disable surface 0x256dfb10 with focusing surface 0x2251da50
+23:49:08.567: virtual void QtWaylandClient::QWaylandTextInputv3::disableSurface(wl_surface*) Try to disable surface 0x256dfb10 with focusing surface 0x2251da50
+23:49:10.466: virtual void QtWaylandClient::QWaylandTextInputv3::disableSurface(wl_surface*) Try to disable surface 0x254e7260 with focusing surface 0x2251da50
+23:49:10.854: virtual void QtWaylandClient::QWaylandTextInputv3::disableSurface(wl_surface*) Try to disable surface 0x254e7260 with focusing surface 0x2251da50
+23:49:11.215: User Removed source 'Video Capture Device (V4L2)' (v4l2_input) from scene 'Scene'
+23:49:11.215: User Removed source 'VLC Video Source' (vlc_source) from scene 'Scene'
+23:49:17.570: virtual void QtWaylandClient::QWaylandTextInputv3::disableSurface(wl_surface*) Try to disable surface 0x2251da50 with focusing surface 0x25065950
+23:49:18.291: PipeWire initialized
+23:49:18.293: User added source 'Screen Capture (PipeWire)' (pipewire-screen-capture-source) to scene 'Scene'
+23:49:18.315: virtual void QtWaylandClient::QWaylandTextInputv3::disableSurface(wl_surface*) Try to disable surface 0x244848a0 with focusing surface 0x2251da50
+23:49:18.325: [pipewire] Screencast session created
+23:49:26.403: virtual void QtWaylandClient::QWaylandTextInputv3::disableSurface(wl_surface*) Try to disable surface 0x244848a0 with focusing surface 0x2251da50
+23:49:27.543: PipeWire initialized
+23:49:31.589: [pipewire] Asking for monitor and window

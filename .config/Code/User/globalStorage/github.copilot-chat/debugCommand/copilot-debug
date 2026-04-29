@@ -1,0 +1,3 @@
+#!/bin/sh
+unset NODE_OPTIONS
+ELECTRON_RUN_AS_NODE=1 "/nix/store/dchly2ad9bdykndfr7njm8c7sv264185-vscode-1.104.1/lib/vscode/code" "/home/fed/.config/Code/User/globalStorage/github.copilot-chat/debugCommand/copilotDebugCommand.js" "vscode://github.copilot-chat" "" "$@"
