@@ -158,7 +158,7 @@ layout {
     // You can change how the focus ring looks.
     focus-ring {
         // Uncomment this line to disable the focus ring.
-         off
+        off
 
         // How many logical pixels the ring extends out from the windows.
         width 1
@@ -169,13 +169,13 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#b0d0ff"
+        active-color "#888888"
 
         // Color of the ring on inactive monitors.
         //
         // The focus ring only draws around the active window, so the only place
         // where you can see its inactive-color is on other monitors.
-        inactive-color "#505050"
+        // inactive-color "#505050"
 
         // You can also use gradients. They take precedence over solid colors.
         // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
@@ -639,12 +639,42 @@ window-rule {
 
 //    opacity 0.9
 //}
+window-rule {
+
+    opacity 0.8
+    background-effect {
+        blur true
+    }
+}
 
 window-rule {
     match app-id="firefox"
-    opacity 0.9
-}
+    //opacity 0.7
 
+    background-effect {
+        //xray true
+        //blur false
+    }
+}
+window-rule {
+    match app-id="kitty"
+    opacity 1.0
+
+    background-effect {
+        xray false
+        blur true
+    }
+}
+layer-rule {
+    //opacity 1.0
+
+    //match layer="top"
+    //match layer="overlay"
+    //background-effect {
+    //    xray false
+    //    blur false
+    //}
+}
 debug {
   // Allows notification actions and window activation from Noctalia.
   honor-xdg-activation-with-invalid-serial

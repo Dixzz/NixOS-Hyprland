@@ -25,7 +25,7 @@
         "showIconBackground": false,
         "sortByMostUsed": true,
         "terminalCommand": "kitty -e",
-        "viewMode": "grid"
+        "viewMode": "list"
     },
     "audio": {
         "mprisBlacklist": [
@@ -33,7 +33,7 @@
         "preferredPlayer": "",
         "spectrumFrameRate": 30,
         "spectrumMirrored": true,
-        "visualizerType": "mirrored",
+        "visualizerType": "wave",
         "volumeFeedback": false,
         "volumeFeedbackSoundFile": "",
         "volumeOverdrive": false,
@@ -43,19 +43,19 @@
         "autoHideDelay": 500,
         "autoShowDelay": 150,
         "backgroundOpacity": 0,
-        "barType": "floating",
+        "barType": "simple",
         "capsuleColorKey": "tertiary",
         "capsuleOpacity": 0.35000000000000003,
         "contentPadding": 0,
         "density": "default",
         "displayMode": "always_visible",
-        "enableExclusionZoneInset": false,
-        "fontScale": 1,
+        "enableExclusionZoneInset": true,
+        "fontScale": 1.1099999999999999,
         "frameRadius": 4,
         "frameThickness": 4,
         "hideOnOverview": false,
-        "marginHorizontal": 4,
-        "marginVertical": 4,
+        "marginHorizontal": 8,
+        "marginVertical": 8,
         "middleClickAction": "none",
         "middleClickCommand": "",
         "middleClickFollowMouse": false,
@@ -71,11 +71,11 @@
         "rightClickFollowMouse": true,
         "screenOverrides": [
         ],
-        "showCapsule": true,
+        "showCapsule": false,
         "showOnWorkspaceSwitch": true,
         "showOutline": false,
-        "useSeparateOpacity": true,
-        "widgetSpacing": 6,
+        "useSeparateOpacity": false,
+        "widgetSpacing": 0,
         "widgets": {
             "center": [
                 {
@@ -87,36 +87,17 @@
             ],
             "left": [
                 {
-                    "colorizeSystemIcon": "error",
-                    "colorizeSystemText": "none",
-                    "customIconPath": "",
-                    "enableColorization": false,
-                    "icon": "rocket",
-                    "iconColor": "none",
-                    "id": "Launcher",
-                    "useDistroLogo": true
-                },
-                {
-                    "clockColor": "none",
-                    "customFont": "",
-                    "formatHorizontal": "HH:mm ddd, MMM dd",
-                    "formatVertical": "HH mm - dd MM",
-                    "id": "Clock",
-                    "tooltipFormat": "HH:mm ddd, MMM dd",
-                    "useCustomFont": false
-                },
-                {
                     "compactMode": false,
                     "diskPath": "/",
                     "iconColor": "none",
                     "id": "SystemMonitor",
                     "showCpuCores": true,
                     "showCpuFreq": false,
-                    "showCpuTemp": true,
+                    "showCpuTemp": false,
                     "showCpuUsage": true,
                     "showDiskAvailable": false,
-                    "showDiskUsage": false,
-                    "showDiskUsageAsPercent": false,
+                    "showDiskUsage": true,
+                    "showDiskUsageAsPercent": true,
                     "showGpuTemp": false,
                     "showLoadAverage": false,
                     "showMemoryAsPercent": true,
@@ -125,26 +106,35 @@
                     "showSwapUsage": false,
                     "textColor": "none",
                     "useMonospaceFont": true,
-                    "usePadding": true
+                    "usePadding": false
                 },
                 {
                     "compactMode": false,
                     "hideMode": "hidden",
                     "hideWhenIdle": false,
                     "id": "MediaMini",
-                    "maxWidth": 145,
+                    "maxWidth": 500,
                     "panelShowAlbumArt": true,
                     "scrollingMode": "hover",
                     "showAlbumArt": false,
-                    "showArtistFirst": true,
+                    "showArtistFirst": false,
                     "showProgressRing": true,
                     "showVisualizer": false,
                     "textColor": "none",
-                    "useFixedWidth": false,
+                    "useFixedWidth": true,
                     "visualizerType": "linear"
                 }
             ],
             "right": [
+                {
+                    "clockColor": "none",
+                    "customFont": "",
+                    "formatHorizontal": "HH:mm | MMM dd",
+                    "formatVertical": "dd MM - HH mm",
+                    "id": "Clock",
+                    "tooltipFormat": "HH:mm ddd, MMM dd",
+                    "useCustomFont": false
+                },
                 {
                     "blacklist": [
                     ],
@@ -198,24 +188,21 @@
                     "useDistroLogo": false
                 },
                 {
+                    "iconColor": "none",
+                    "id": "DarkMode"
+                },
+                {
                     "defaultSettings": {
-                        "autoPaste": false,
-                        "autoPasteDelay": 300,
-                        "autoPasteOnRightClick": false,
-                        "cardColors": {
-                        },
-                        "customColors": {
-                        },
-                        "enableTodoIntegration": false,
-                        "fullscreenMode": false,
-                        "hidePanelBackground": false,
-                        "notecardsEnabled": true,
-                        "panelHeight": 0,
-                        "panelWidth": 1450,
-                        "pincardsEnabled": true,
-                        "showCloseButton": true
+                        "activeColor": "primary",
+                        "camFilterRegex": "",
+                        "enableToast": true,
+                        "hideInactive": false,
+                        "iconSpacing": 4,
+                        "inactiveColor": "none",
+                        "micFilterRegex": "",
+                        "removeMargins": false
                     },
-                    "id": "plugin:clipper"
+                    "id": "plugin:privacy-indicator"
                 }
             ]
         }
@@ -245,14 +232,14 @@
     },
     "colorSchemes": {
         "darkMode": true,
-        "generationMethod": "fruit-salad",
+        "generationMethod": "vibrant",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
         "predefinedScheme": "Rose Pine",
         "schedulingMode": "off",
         "syncGsettings": true,
-        "useWallpaperColors": false
+        "useWallpaperColors": true
     },
     "controlCenter": {
         "cards": [
@@ -277,7 +264,7 @@
                 "id": "weather-card"
             },
             {
-                "enabled": true,
+                "enabled": false,
                 "id": "media-sysmon-card"
             }
         ],
@@ -315,10 +302,28 @@
         }
     },
     "desktopWidgets": {
-        "enabled": false,
+        "enabled": true,
         "gridSnap": false,
         "gridSnapScale": false,
         "monitorWidgets": [
+            {
+                "name": "eDP-1",
+                "widgets": [
+                    {
+                        "hideMode": "hidden",
+                        "id": "MediaPlayer",
+                        "roundedCorners": true,
+                        "scale": 1.05,
+                        "showAlbumArt": true,
+                        "showBackground": false,
+                        "showButtons": true,
+                        "showVisualizer": false,
+                        "visualizerType": "linear",
+                        "x": 776,
+                        "y": 996
+                    }
+                ]
+            }
         ],
         "overviewEnabled": true
     },
@@ -367,10 +372,10 @@
         "clockStyle": "custom",
         "compactLockScreen": false,
         "dimmerOpacity": 0,
-        "enableBlurBehind": false,
+        "enableBlurBehind": true,
         "enableLockScreenCountdown": true,
         "enableLockScreenMediaControls": false,
-        "enableShadows": true,
+        "enableShadows": false,
         "forceBlackScreenCorners": false,
         "iRadiusRatio": 1,
         "keybinds": {
@@ -408,7 +413,7 @@
         "passwordChars": false,
         "radiusRatio": 1,
         "reverseScroll": false,
-        "scaleRatio": 1.05,
+        "scaleRatio": 1,
         "screenRadiusRatio": 0,
         "shadowDirection": "center",
         "shadowOffsetX": 0,
@@ -637,13 +642,13 @@
         "fontDefaultScale": 1,
         "fontFixed": "monospace",
         "fontFixedScale": 1,
-        "panelBackgroundOpacity": 0.68,
+        "panelBackgroundOpacity": 0.4,
         "panelsAttachedToBar": true,
         "scrollbarAlwaysVisible": false,
-        "settingsPanelMode": "centered",
-        "settingsPanelSideBarCardStyle": true,
+        "settingsPanelMode": "window",
+        "settingsPanelSideBarCardStyle": false,
         "tooltipsEnabled": true,
-        "translucentWidgets": false
+        "translucentWidgets": true
     },
     "wallpaper": {
         "automationEnabled": false,
@@ -668,7 +673,7 @@
         "skipStartupTransition": false,
         "solidColor": "#1a1a2e",
         "sortOrder": "name",
-        "transitionDuration": 1500,
+        "transitionDuration": 1900,
         "transitionEdgeSmoothness": 0.05,
         "transitionType": [
             "fade",
@@ -680,13 +685,13 @@
         ],
         "useOriginalImages": false,
         "useSolidColor": false,
-        "useWallhaven": true,
-        "viewMode": "recursive",
+        "useWallhaven": false,
+        "viewMode": "single",
         "wallhavenApiKey": "",
         "wallhavenCategories": "111",
         "wallhavenOrder": "desc",
         "wallhavenPurity": "100",
-        "wallhavenQuery": "darling",
+        "wallhavenQuery": "",
         "wallhavenRatios": "",
         "wallhavenResolutionHeight": "",
         "wallhavenResolutionMode": "atleast",

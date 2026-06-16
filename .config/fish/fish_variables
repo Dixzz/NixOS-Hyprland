@@ -1,4 +1,4 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR __fish_initialized:4300
-SETUVAR fish_user_paths:/run/media/fed/DATA/flutter/bin
+SETUVAR fish_user_paths:/home/fed/Downloads/develop/flutter/bin\x1e/run/media/fed/DATA/flutter/bin

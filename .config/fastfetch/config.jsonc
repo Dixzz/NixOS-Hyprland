@@ -4,8 +4,8 @@
 "logo": {
   "source": "~/.config/fastfetch/nixos.png",
   "type": "kitty-direct",
-  "height": 18,
-  "width": 36,
+  "height": 12,
+  "width": 24,
   "padding": {
     "top": 1
     }
