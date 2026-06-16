@@ -4,6 +4,7 @@
 {
   config,
   pkgs,
+  niri,
   ...
 }: let
   #  nixvim = import (builtins.fetchGit {
@@ -12,6 +13,9 @@
   # ref = "nixos-25.11";
   #  });
 in {
+  nixpkgs.overlays = [niri.overlays.niri];
+  programs.niri.package = pkgs.niri-unstable;
+
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -43,11 +47,12 @@ in {
       vim.viAlias = false;
       vim.vimAlias = true;
       vim = {
+        lineNumberMode = "none";
         theme = {
           enable = true;
           transparent = true;
           name = "everforest";
-          style = "medium"; # or "soft" / "medium"
+          style = "hard"; # or "soft" / "medium"
         };
         mini.tabline.enable = true;
 
@@ -113,6 +118,10 @@ in {
 
             # optional nice UI features
             flutter-tools.color.enable = true;
+          };
+
+          clang = {
+            enable = true;
           };
         };
 
@@ -207,6 +216,10 @@ in {
     "nvidia"
   ];
 
+  services.udev.packages = with pkgs; [
+    stlink
+  ];
+
   # --- Automounting and disk management ---
   services.udisks2.enable = true;
   services.gvfs.enable = true; # for automount and trash support in Thunar
@@ -227,7 +240,9 @@ in {
       }
     })
   '';
+  security.pki.certificateFiles = ["${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt"];
 
+  environment.variables.SSL_CERT_FILE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
   #programs.waybar.enable = true;
 
   # Load nvidia driver for Xorg and Wayland
@@ -324,6 +339,7 @@ in {
       "networkmanager"
       "wheel"
       "storage"
+      "dialout"
       "disk"
     ];
     packages = with pkgs; [
@@ -360,9 +376,12 @@ in {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    devenv
+    stlink
+    openocd
+    #devenv
     direnv
     #noctalia-qs
+    brave
     noctalia-shell
     wl-clipboard
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
@@ -371,6 +390,7 @@ in {
     kitty
     wget
     fd
+    fastfetch
     #gnome-extension-manager
   ];
 
@@ -398,12 +418,12 @@ in {
   #];
 
   # --- Optional: ZRAM or Swap tuning ---
-  zramSwap = {
-    enable = true;
-    priority = 100;
-    algorithm = "zstd";
-    memoryPercent = 30; # use 20% of RAM for fast compressed swap
-  };
+  #zramSwap = {
+  #    enable = true;
+  #    priority = 100;
+  #    algorithm = "zstd";
+  #    memoryPercent = 30; # use 20% of RAM for fast compressed swap
+  #  };
 
   # --- Optional: make cargo build faster ---
   #environment.sessionVariables = {
