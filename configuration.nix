@@ -5,6 +5,7 @@
   config,
   pkgs,
   niri,
+  noctalia,
   ...
 }: let
   #  nixvim = import (builtins.fetchGit {
@@ -47,6 +48,7 @@ in {
       vim.viAlias = false;
       vim.vimAlias = true;
       vim = {
+        diagnostics.enable = true;
         lineNumberMode = "none";
         theme = {
           enable = true;
@@ -55,7 +57,6 @@ in {
           style = "hard"; # or "soft" / "medium"
         };
         mini.tabline.enable = true;
-
         terminal.toggleterm.enable = true;
         #        filetree.neo-tree.enable = true;
 
@@ -66,6 +67,7 @@ in {
           };
         };
         ui = {
+          colorful-menu-nvim.enable = true;
           noice.enable = true;
         };
         statusline.lualine.activeSection.b = [];
@@ -77,7 +79,7 @@ in {
           # enable global features
           enableLSP = true;
           enableTreesitter = true;
-
+          enableExtraDiagnostics = true;
           # -----------------
           # NIX
           # -----------------
@@ -133,6 +135,7 @@ in {
         #};
 
         lsp = {
+          lspsaga.enable = true;
           formatOnSave = true;
           #presets.dart.enable = true;
         };
@@ -188,7 +191,9 @@ in {
   # Enable networking
   networking.networkmanager.enable = true;
 
-  services.noctalia-shell.enable = true;
+  programs.noctalia.enable = true;
+  #programs.noctalia.systemd.enable = true;
+  #services.noctalia-shell.enable = true;
   #services.thermald.enable = true;
 
   # Set your time zone.
@@ -382,7 +387,9 @@ in {
     direnv
     #noctalia-qs
     brave
-    noctalia-shell
+    noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    #noctalia
+    #noctalia-shell
     wl-clipboard
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     fish
@@ -397,18 +404,18 @@ in {
   programs.fish.enable = true;
 
   # --- Kernel / memory tuning ---
-  boot.kernel.sysctl = {
-    "vm.swappiness" = 10; # Prefer using RAM over swap (default ~60)
-    "vm.vfs_cache_pressure" = 50; # Keep inode/dentry caches longer
-    "vm.dirty_ratio" = 10; # Start writing dirty pages early
-    "vm.dirty_background_ratio" = 5; # Keep background writes responsive
-  };
+  #boot.kernel.sysctl = {
+  #  "vm.swappiness" = 10; # Prefer using RAM over swap (default ~60)
+  #  "vm.vfs_cache_pressure" = 50; # Keep inode/dentry caches longer
+  #  "vm.dirty_ratio" = 10; # Start writing dirty pages early
+  #  "vm.dirty_background_ratio" = 5; # Keep background writes responsive
+  #};
 
   # --- CPU governor: keep performance up during compiles ---
-  #powerManagement = {
-  #  enable = true;
-  #  cpuFreqGovernor = "performance";  # Keeps CPU at full clock during build
-  #};
+  powerManagement = {
+    enable = true;
+    cpuFreqGovernor = "performance"; # Keeps CPU at full clock during build
+  };
 
   # --- I/O scheduler (for SSDs / NVMe, low latency) ---
   #boot.kernelParams = [
@@ -418,12 +425,12 @@ in {
   #];
 
   # --- Optional: ZRAM or Swap tuning ---
-  #zramSwap = {
-  #    enable = true;
-  #    priority = 100;
-  #    algorithm = "zstd";
-  #    memoryPercent = 30; # use 20% of RAM for fast compressed swap
-  #  };
+  zramSwap = {
+    enable = true;
+    priority = 100;
+    algorithm = "zstd";
+    memoryPercent = 30; # use 20% of RAM for fast compressed swap
+  };
 
   # --- Optional: make cargo build faster ---
   #environment.sessionVariables = {

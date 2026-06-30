@@ -17,11 +17,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
+      #url = "github:noctalia-dev/noctalia-shell";
+      url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     niri-nix = {
       url = "git+https://codeberg.org/BANanaD3V/niri-nix";
+
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -36,7 +39,7 @@
   }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = {inherit niri;};
+      specialArgs = {inherit niri noctalia;};
 
       modules = [
         ./configuration.nix
