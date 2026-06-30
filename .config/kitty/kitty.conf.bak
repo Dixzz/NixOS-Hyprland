@@ -9,7 +9,7 @@ bold_font auto
 italic_font auto
 bold_italic_font auto
 
-background_opacity 0.9
+background_opacity 0.5
 dynamic_background_opacity 1
 confirm_os_window_close 0
 
@@ -24,11 +24,23 @@ wheel_scroll_min_lines 1
 
 enable_audio_bell no
 
-window_padding_width 4
+window_padding_width 10
 
-selection_foreground none
-selection_background none
+# selection_foreground none
+# selection_background none
+# foreground #dddddd
+# background #000000
+# cursor #dddddd
 
-foreground #dddddd
-background #000000
-cursor #dddddd
+# BEGIN_KITTY_THEME
+# Everforest Dark Hard
+include current-theme.conf
+# END_KITTY_THEME
+
+# ================================
+# Modern Kitty Floating Terminal
+# ================================
+
+
+background #111
+#env PATH=/run/media/fed/DATA/flutter_windows_3.38.10-stable/flutter/bin/:$PATH

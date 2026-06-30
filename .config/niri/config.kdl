@@ -616,12 +616,15 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 
     // custom
-    Mod+Space { spawn-sh "noctalia-shell ipc call launcher toggle"; }
+    Mod+Space { spawn-sh "noctalia msg panel-toggle launcher"; }
+    Mod+B { spawn-sh "noctalia msg bar-show default"; }
+
+
     
-    Mod+Alt+V { spawn-sh "noctalia-shell ipc call plugin:clipper toggle"; }
+    //Mod+Alt+V { spawn-sh "noctalia-shell ipc call plugin:clipper toggle"; }
 }
 
-spawn-at-startup "qs" "-c" "noctalia-shell"
+// spawn-at-startup "qs" "-c" "noctalia-shell"
 window-rule {
   // Rounded corners for a modern look.
   geometry-corner-radius 12
@@ -649,11 +652,11 @@ window-rule {
 
 window-rule {
     match app-id="firefox"
-    //opacity 0.7
+    opacity 0.8
 
     background-effect {
-        //xray true
-        //blur false
+        xray false
+        blur true
     }
 }
 window-rule {
@@ -661,8 +664,8 @@ window-rule {
     opacity 1.0
 
     background-effect {
-        xray false
-        blur true
+        //xray false
+        //blur true
     }
 }
 layer-rule {
@@ -679,3 +682,6 @@ debug {
   // Allows notification actions and window activation from Noctalia.
   honor-xdg-activation-with-invalid-serial
 }
+spawn-at-startup "noctalia"
+
+include "noctalia.kdl"

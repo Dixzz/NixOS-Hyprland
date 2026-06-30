@@ -1,0 +1,311 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  user-select: none;
+  overflow: hidden;
+}
+
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/* Carousel */
+.carousel-container {
+  position: relative;
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.carousel {
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+}
+
+/* Carousel slide  */
+.carousel-slide {
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  will-change: opacity;
+}
+
+.carousel[data-animation-style="fade"] .carousel-slide {
+  position: absolute;
+  inset: 0;
+}
+
+.carousel[data-animation-style="fade"] .carousel-slide.active {
+  opacity: 1;
+}
+
+.carousel[data-animation-style="scroll"] {
+  scroll-snap-type: x mandatory;
+  overflow-x: scroll;
+}
+
+.carousel[data-animation-style="scroll"] .carousel-slide {
+  scroll-snap-align: start;
+  opacity: 1;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* Carousel navigation */
+.carousel-navigation-container {
+  position: fixed;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 2s ease,
+    visibility 0.5s ease;
+  bottom: calc(var(--safe-area-bottom));
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  display: flex;
+  gap: 10px;
+}
+
+@media (max-height: 400px) {
+  .carousel-navigation-container {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.carousel-navigation {
+  inline-size: 40px;
+  block-size: 40px;
+  display: inline-block;
+  background: center / cover no-repeat;
+}
+
+.carousel-navigation.prev {
+  background-image: url("./prev-slide-button-DQVDkYa9.webp");
+}
+
+.carousel-navigation.prev:hover {
+  cursor: pointer;
+}
+
+.carousel-navigation.next {
+  background-image: url("./next-slide-button-BbZnxMD-.webp");
+}
+
+.carousel-navigation.next:hover {
+  cursor: pointer;
+}
+
+.carousel-navigation:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+/* Carousel pagination dots */
+.carousel-pagination-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-pagination-dots .carousel-pagination-dot {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin: 0 5px;
+  background-image: url("./dimmed-pagination-dot-BfP9EQNd.webp");
+  background-size: cover;
+}
+
+.carousel-pagination-dot:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.carousel-pagination-dots .carousel-pagination-dot.active {
+  background-image: url("./pagination-dot-GXGfMf7U.webp");
+}
+.button {
+  position: absolute;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.5s ease,
+    visibility 0.5s ease;
+  bottom: calc(var(--safe-area-bottom));
+  width: 170px;
+  cursor: pointer;
+}
+
+@media (max-height: 400px) {
+  .button {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@media (min-width: 768px) {
+  .button {
+    left: calc(var(--safe-area-left));
+    transform: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .button {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+.gradient-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100dvw;
+  height: 100dvh;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to bottom,
+
+    /* Top fade-out */ hsla(0, 0%, 0%, 0.738) 0px,
+    hsla(0, 0%, 0%, 0.541) 40px,
+    hsla(0, 0%, 0%, 0.382) 72px,
+    hsla(0, 0%, 0%, 0.278) 100px,
+    hsla(0, 0%, 0%, 0.194) 126px,
+    hsla(0, 0%, 0%, 0.126) 150px,
+    hsla(0, 0%, 0%, 0.075) 172px,
+    hsla(0, 0%, 0%, 0.042) 192px,
+    hsla(0, 0%, 0%, 0.021) 208px,
+    hsla(0, 0%, 0%, 0.008) 220px,
+    hsla(0, 0%, 0%, 0.002) 228px,
+    hsla(0, 0%, 0%, 0) 232px,
+    /* Transparent middle */ hsla(0, 0%, 0%, 0) calc(100% - 232px),
+    /* Bottom fade-in */ hsla(0, 0%, 0%, 0.002) calc(100% - 228px),
+    hsla(0, 0%, 0%, 0.008) calc(100% - 220px),
+    hsla(0, 0%, 0%, 0.021) calc(100% - 208px),
+    hsla(0, 0%, 0%, 0.042) calc(100% - 192px),
+    hsla(0, 0%, 0%, 0.075) calc(100% - 172px),
+    hsla(0, 0%, 0%, 0.126) calc(100% - 150px),
+    hsla(0, 0%, 0%, 0.194) calc(100% - 126px),
+    hsla(0, 0%, 0%, 0.278) calc(100% - 100px),
+    hsla(0, 0%, 0%, 0.382) calc(100% - 72px),
+    hsla(0, 0%, 0%, 0.541) calc(100% - 40px),
+    hsla(0, 0%, 0%, 0.738) 100%
+  );
+}
+.carousel-slide {
+  overflow: hidden;
+}
+
+.carousel-slide > img:not(.prompt) {
+  transform: scale(1);
+  transition: transform 3000ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-slide.active > img:not(.prompt) {
+  transform: scale(1.09);
+}
+
+.prompt-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.prompt-layer .prompt {
+  position: absolute;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  border-radius: 3.3% / 11.7%;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px) saturate(1) brightness(1);
+  -webkit-backdrop-filter: blur(20px) saturate(1) brightness(1);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18),
+    0 6px 60px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  pointer-events: none;
+}
+
+.prompt-icon {
+  flex-shrink: 0;
+}
+
+.prompt-icon-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.prompt-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4em;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.prompt-title {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+}
+
+.prompt-description {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.72em;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+}
+
+@keyframes prompt-pop-in {
+  0% {
+    animation-timing-function: ease-out;
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  65% {
+    animation-timing-function: ease-in;
+    opacity: 1;
+    transform: scale(1.04);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-slide > img:not(.prompt) {
+    transition: none;
+    transform: scale(1);
+  }
+
+  .prompt-layer .prompt {
+    animation: none !important;
+  }
+}

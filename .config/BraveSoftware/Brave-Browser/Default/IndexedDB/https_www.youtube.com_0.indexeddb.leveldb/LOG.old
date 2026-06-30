@@ -1,2 +1,7 @@
-2026/05/15-12:33:08.637 76b2 Creating DB /home/fed/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_www.youtube.com_0.indexeddb.leveldb since it was missing.
-2026/05/15-12:33:08.693 76b2 Reusing MANIFEST /home/fed/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_www.youtube.com_0.indexeddb.leveldb/MANIFEST-000001
+2026/05/15-13:56:02.358 76b2 Reusing MANIFEST /home/fed/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_www.youtube.com_0.indexeddb.leveldb/MANIFEST-000001
+2026/05/15-13:56:02.359 76b2 Recovering log #3
+2026/05/15-13:56:02.374 76b2 Reusing old log /home/fed/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_www.youtube.com_0.indexeddb.leveldb/000003.log 
+2026/05/15-14:02:55.900 76af Level-0 table #5: started
+2026/05/15-14:02:55.975 76af Level-0 table #5: 788145 bytes OK
+2026/05/15-14:02:56.016 76af Delete type=0 #3
+2026/05/15-14:02:56.051 76af Manual compaction at level-0 from (begin) .. (end); will stop at (end)
