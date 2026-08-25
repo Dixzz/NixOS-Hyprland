@@ -5,7 +5,8 @@
   config,
   pkgs,
   niri,
-  noctalia,
+  dms,
+  #noctalia,
   ...
 }: let
   #  nixvim = import (builtins.fetchGit {
@@ -40,6 +41,11 @@ in {
   };
   #boot.loader.grub.grubGeneration = true;
 
+  programs.dms-shell = {
+    enable = true;
+    package = dms.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    #systemd.enable = true;
+  };
   programs.nvf = {
     enable = true;
     # Your settings need to go into the settings attribute set
@@ -76,8 +82,6 @@ in {
         autocomplete.nvim-cmp.enable = true;
         statusline.lualine.enable = true;
         languages = {
-          # enable global features
-          enableLSP = true;
           enableTreesitter = true;
           enableExtraDiagnostics = true;
           # -----------------
@@ -90,7 +94,7 @@ in {
             lsp.servers = ["nil"]; # or "nixd"
 
             format.enable = true;
-            format.type = "alejandra"; # or "nixfmt"
+            format.type = ["alejandra"]; # or "nixfmt"
 
             treesitter.enable = true;
 
@@ -135,12 +139,32 @@ in {
         #};
 
         lsp = {
+          enable = true;
           lspsaga.enable = true;
           formatOnSave = true;
           #presets.dart.enable = true;
         };
       };
     };
+  };
+
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+    ];
+
+    config = {
+      common = {
+        default = ["gtk"];
+      };
+    };
+  };
+
+  environment.sessionVariables = {
+    GTK_USE_PORTAL = "1";
   };
 
   hardware.graphics.enable = true;
@@ -191,7 +215,7 @@ in {
   # Enable networking
   networking.networkmanager.enable = true;
 
-  programs.noctalia.enable = true;
+  #programs.noctalia.enable = true;
   #programs.noctalia.systemd.enable = true;
   #services.noctalia-shell.enable = true;
   #services.thermald.enable = true;
@@ -381,13 +405,15 @@ in {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    thunar
+    gtk3
     stlink
     openocd
-    #devenv
+    devenv
     direnv
     #noctalia-qs
     brave
-    noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    #noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     #noctalia
     #noctalia-shell
     wl-clipboard
@@ -429,7 +455,7 @@ in {
     enable = true;
     priority = 100;
     algorithm = "zstd";
-    memoryPercent = 30; # use 20% of RAM for fast compressed swap
+    memoryPercent = 20; # use 20% of RAM for fast compressed swap
   };
 
   # --- Optional: make cargo build faster ---

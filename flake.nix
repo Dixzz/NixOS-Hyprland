@@ -7,48 +7,60 @@
     #niri.url = "github:sodiboo/niri-flake";
     niri = {
       url = "github:sodiboo/niri-flake/main";
-      inputs.nixpkgs.follows = "nixpkgs";
+      #inputs.nixpkgs.follows = "nixpkgs";
     };
     nvf = {
       url = "github:NotAShelf/nvf";
       # If you are not running an unstable channel of nixpkgs, select the corresponding branch of Nixvim.
       # url = "github:nix-community/nixvim/nixos-25.11";
 
-      inputs.nixpkgs.follows = "nixpkgs";
+      #inputs.nixpkgs.follows = "nixpkgs";
     };
-    noctalia = {
-      #url = "github:noctalia-dev/noctalia-shell";
-      url = "github:noctalia-dev/noctalia";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    niri-nix = {
-      url = "git+https://codeberg.org/BANanaD3V/niri-nix";
 
-      inputs.nixpkgs.follows = "nixpkgs";
+    dms = {
+      url = "github:AvengeMedia/DankMaterialShell/stable";
+      #inputs.nixpkgs.follows = "nixpkgs";
     };
+    dms-plugin-registry = {
+      url = "github:AvengeMedia/dms-plugin-registry";
+      #inputs.nixpkgs.follows = "nixpkgs";
+    };
+    #noctalia = {
+      #url = "github:noctalia-dev/noctalia-shell";
+      #url = "github:noctalia-dev/noctalia";
+      #inputs.nixpkgs.follows = "nixpkgs";
+    #};
+    #niri-nix = {
+    #  url = "git+https://codeberg.org/BANanaD3V/niri-nix";
+
+      #inputs.nixpkgs.follows = "nixpkgs";
+    #};
   };
 
   outputs = {
     self,
     nixpkgs,
     niri,
-    niri-nix,
-    noctalia,
+    dms,
+    dms-plugin-registry,
+    #niri-nix,
+    #noctalia,
     nvf,
     ...
   }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = {inherit niri noctalia;};
+      specialArgs = {inherit niri dms-plugin-registry dms;};
 
       modules = [
-        ./configuration.nix
-
         #niri-nix.nixosModules.default
         #nixvim.nixosModules.nixvim
+        dms-plugin-registry.nixosModules.default
         nvf.nixosModules.default
-        noctalia.nixosModules.default
+        #noctalia.nixosModules.default
         niri.nixosModules.niri
+
+        ./configuration.nix
       ];
     };
   };
