@@ -405,6 +405,7 @@ in {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    fzf
     thunar
     gtk3
     stlink
