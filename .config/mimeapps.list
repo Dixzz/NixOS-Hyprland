@@ -5,6 +5,8 @@ x-scheme-handler/https=google-chrome.desktop
 x-scheme-handler/about=google-chrome.desktop
 x-scheme-handler/unknown=google-chrome.desktop
 application/pdf=firefox.desktop
+audio/mp4=xdg-desktop-portal-gnome.desktop
 
 [Added Associations]
 application/pdf=firefox.desktop;
+audio/mp4=xdg-desktop-portal-gnome.desktop;
