@@ -6,9 +6,24 @@
   pkgs,
   niri,
   dms,
+  gram-extensions,
   #noctalia,
   ...
 }: let
+  #gram-extensions = import (builtins.fetchGit {
+  #  url = "git+https://codeberg.org/niklaskorz/nix-gram-extensions";
+  #});
+  gramPkgs = gram-extensions.packages.${pkgs.stdenv.hostPlatform.system};
+
+  extensions = with gramPkgs; [
+    bearded-icons
+    catppuccin-blur
+    catppuccin-icons
+    #graphql
+    #nix
+    git-firefly
+  ];
+  gram = gram-extensions.packages.${pkgs.stdenv.hostPlatform.system}.wrapGramWithExtensions pkgs.gram extensions;
   #  nixvim = import (builtins.fetchGit {
   #    url = "https://github.com/nix-community/nixvim";
   #    # If you are not running an unstable channel of nixpkgs, select the corresponding branch of Nixvim.
@@ -21,7 +36,7 @@ in {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    #      <home-manager/nixos>
+    #<home-manager/nixos>
   ];
 
   # Bootloader.
@@ -55,7 +70,10 @@ in {
       vim.vimAlias = true;
       vim = {
         diagnostics.enable = true;
-        lineNumberMode = "none";
+        binds.cheatsheet.enable = true;
+        #binds.whichKey.enable = true;
+
+        #        lineNumberMode = "none";
         theme = {
           enable = true;
           transparent = true;
@@ -63,21 +81,24 @@ in {
           style = "hard"; # or "soft" / "medium"
         };
         mini.tabline.enable = true;
-        terminal.toggleterm.enable = true;
+        #        terminal.toggleterm.enable = true;
         #        filetree.neo-tree.enable = true;
 
-        extraPlugins = {
-          which-key = {
-            package = pkgs.vimPlugins.which-key-nvim;
-            #setup = "require('which-key').show({ global = false })";
-          };
-        };
+        #extraPlugins = {
+        #which-key = {
+        #            package = pkgs.vimPlugins.which-key-nvim;
+        #setup = "require('which-key').show({ global = false })";
+        #          };
+        #        };
         ui = {
-          colorful-menu-nvim.enable = true;
+          #          colorful-menu-nvim.enable = true;
           noice.enable = true;
+          dropbar-nvim.enable = true;
+          illuminate.enable = true;
+          ui2.enable = true;
         };
-        statusline.lualine.activeSection.b = [];
-        statusline.lualine.activeSection.c = [];
+        #        statusline.lualine.activeSection.b = [];
+        #        statusline.lualine.activeSection.c = [];
         telescope.enable = true;
         autocomplete.nvim-cmp.enable = true;
         statusline.lualine.enable = true;
@@ -108,27 +129,34 @@ in {
           # -----------------
           # DART / FLUTTER
           # -----------------
-          dart = {
-            enable = true;
+          #dart = {
+          #  enable = true;
 
-            lsp.enable = true;
-            lsp.servers = ["dart"];
+          # lsp.enable = true;
+          # lsp.servers = ["dart"];
 
-            treesitter.enable = true;
+          #  treesitter.enable = true;
 
-            # Flutter integration (optional but useful)
-            flutter-tools.enable = true;
+          # Flutter integration (optional but useful)
+          #  flutter-tools.enable = true;
 
-            # enable debugger support (DAP)
-            dap.enable = true;
+          # enable debugger support (DAP)
+          #  dap.enable = true;
 
-            # optional nice UI features
-            flutter-tools.color.enable = true;
-          };
+          # optional nice UI features
+          #  flutter-tools.color.enable = true;
+          #};
 
-          clang = {
-            enable = true;
-          };
+          # clang = {
+          #   enable = true;
+
+          #   treesitter.enable = true;
+
+          #   lsp.enable = true;
+
+          # Optional but useful
+          #   format.enable = true;
+          # };
         };
 
         #languages = {
@@ -405,6 +433,9 @@ in {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    clang
+    clang-tools
+
     fzf
     thunar
     gtk3
@@ -425,6 +456,7 @@ in {
     wget
     fd
     fastfetch
+    gram
     #gnome-extension-manager
   ];
 
@@ -498,6 +530,8 @@ in {
 
   #home-manager.users.fed = { pkgs, ... }: {
   #home.stateVersion = "25.05";
-  #home.packages = [ ];
-  #  };
+  #home.packages =  [
+  # pkgs.gram
+  #];
+  #   };
 }

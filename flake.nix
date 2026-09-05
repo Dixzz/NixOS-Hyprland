@@ -25,15 +25,19 @@
       url = "github:AvengeMedia/dms-plugin-registry";
       #inputs.nixpkgs.follows = "nixpkgs";
     };
+    gram-extensions = {
+      #url = "git+https://codeberg.org/niklaskorz/nix-gram-extensions?ref=main";
+      url = "/home/fed/nix-gram-extensions";
+    };
     #noctalia = {
-      #url = "github:noctalia-dev/noctalia-shell";
-      #url = "github:noctalia-dev/noctalia";
-      #inputs.nixpkgs.follows = "nixpkgs";
+    #url = "github:noctalia-dev/noctalia-shell";
+    #url = "github:noctalia-dev/noctalia";
+    #inputs.nixpkgs.follows = "nixpkgs";
     #};
     #niri-nix = {
     #  url = "git+https://codeberg.org/BANanaD3V/niri-nix";
 
-      #inputs.nixpkgs.follows = "nixpkgs";
+    #inputs.nixpkgs.follows = "nixpkgs";
     #};
   };
 
@@ -43,6 +47,7 @@
     niri,
     dms,
     dms-plugin-registry,
+    gram-extensions,
     #niri-nix,
     #noctalia,
     nvf,
@@ -50,7 +55,7 @@
   }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = {inherit niri dms-plugin-registry dms;};
+      specialArgs = {inherit niri dms-plugin-registry dms gram-extensions;};
 
       modules = [
         #niri-nix.nixosModules.default
