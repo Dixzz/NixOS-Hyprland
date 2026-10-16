@@ -20,7 +20,7 @@
     #catppuccin-blur
     #catppuccin-icons
     #graphql
-    nix
+    #nix
     #git-firefly
   ];
   gram = gram-extensions.packages.${pkgs.stdenv.hostPlatform.system}.wrapGramWithExtensions pkgs.gram extensions;
@@ -31,7 +31,7 @@
   #  });
 in {
   #nixpkgs.overlays = [niri.overlays.niri];
-  nixpkgs.overlays = [ niri-nix.overlays.niri-nix ];
+  nixpkgs.overlays = [niri-nix.overlays.niri-nix];
   #programs.niri.package = pkgs.niri-unstable;
 
   imports = [
@@ -70,10 +70,23 @@ in {
       vim.viAlias = false;
       vim.vimAlias = true;
       vim = {
+keymaps = [
+  {
+    mode = "t";
+    key = "<Esc><Esc>";
+    action = "<C-\\><C-\\>";
+    desc = "Exit terminal to normal";
+  }
+];   
         diagnostics.enable = true;
-        #binds.cheatsheet.enable = true;
-        #binds.whichKey.enable = true;
-
+        binds.cheatsheet.enable = true;
+        binds.whichKey.enable = true;
+        statusline = {
+          lualine = {
+            enable = true;
+            theme = "auto"; # follows your theme (everforest)
+          };
+        };
         #        lineNumberMode = "none";
         theme = {
           enable = true;
@@ -92,8 +105,12 @@ in {
         #          };
         #        };
         ui = {
-          #          colorful-menu-nvim.enable = true;
-          #noice.enable = true;
+          #colorful-menu-nvim.enable = true;
+          noice.enable = true;
+          illuminate.enable = true; # highlights all occurrences of word under cursor
+          colorizer.enable = true; # shows color swatches for hex/rgb values in code
+          borders.enable = true; # adds borders to floating windows
+          fastaction.enable = true; # quick actions for LSP
           #dropbar-nvim.enable = true;
           #illuminate.enable = true;
           #ui2.enable = true;
@@ -101,8 +118,67 @@ in {
         #        statusline.lualine.activeSection.b = [];
         #        statusline.lualine.activeSection.c = [];
         telescope.enable = true;
-        #autocomplete.nvim-cmp.enable = true;
-        #statusline.lualine.enable = true;
+        ##autocomplete.nvim-cmp.enable = true;
+        autocomplete = {
+          nvim-cmp.enable = true; # or blink-cmp.enable = true (needs build)
+        };
+
+        # --- Snippets ---
+        snippets = {
+          luasnip.enable = true;
+        };
+
+        # --- Notify ---
+        notify = {
+          nvim-notify.enable = true; # modern notification toasts
+        };
+
+        # --- Comments ---
+        comments = {
+          comment-nvim.enable = true; # gc to comment/uncomment
+        };
+        # --- Autopairs ---
+        autopairs = {
+          nvim-autopairs.enable = true; # auto-insert closing brackets/quotes
+        };
+
+        # --- Tabline ---
+        tabline = {
+          nvimBufferline.enable = true; # buffer tabs at the top
+        };
+
+        # --- Treesitter context ---
+        treesitter = {
+          context.enable = true; # shows current function/class context
+        };
+
+        # --- Breadcrumbs ---
+        ui.breadcrumbs = {
+          enable = true;
+        };
+
+        # --- File tree ---
+        filetree = {
+          neo-tree = {
+            enable = true; # toggle with <leader>e
+          };
+        };
+
+        # --- Terminal ---
+        terminal = {
+          toggleterm = {
+            enable = true;
+          };
+        };
+
+        # --- Visuals ---
+        visuals = {
+          #nvim-scrollbar.enable = true; # scrollbar on the right
+          #          nvim-cursorline.enable = true; # highlights current line
+          #          indent-blankline.enable = true; # shows indentation guides
+          #          blink-indent.enable = true; # animated indent guide
+        };
+
         languages = {
           enableTreesitter = true;
           enableExtraDiagnostics = true;
@@ -127,11 +203,15 @@ in {
             ];
           };
 
-	  python = {
-		enable = true; 	
-		format.enable = true;
-		lsp.enable = true;
-	  };
+          python = {
+            enable = true;
+            format.enable = true;
+            lsp.enable = true;
+
+            treesitter.enable = true;
+
+            extraDiagnostics.enable = true;
+          };
 
           # -----------------
           # DART / FLUTTER
@@ -176,7 +256,9 @@ in {
         lsp = {
           enable = true;
           lspsaga.enable = true;
-          #formatOnSave = true;
+          trouble.enable = true; # diagnostic list (like VS Code's problems panel)
+          lightbulb.enable = true; # shows code action lightbulb
+          formatOnSave = true;
           #presets.dart.enable = true;
         };
       };
