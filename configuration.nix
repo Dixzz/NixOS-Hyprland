@@ -4,7 +4,7 @@
 {
   config,
   pkgs,
-  niri,
+  niri-nix,
   dms,
   gram-extensions,
   #noctalia,
@@ -16,12 +16,12 @@
   gramPkgs = gram-extensions.packages.${pkgs.stdenv.hostPlatform.system};
 
   extensions = with gramPkgs; [
-    bearded-icons
-    catppuccin-blur
-    catppuccin-icons
+    #bearded-icons
+    #catppuccin-blur
+    #catppuccin-icons
     #graphql
-    #nix
-    git-firefly
+    nix
+    #git-firefly
   ];
   gram = gram-extensions.packages.${pkgs.stdenv.hostPlatform.system}.wrapGramWithExtensions pkgs.gram extensions;
   #  nixvim = import (builtins.fetchGit {
@@ -30,8 +30,9 @@
   # ref = "nixos-25.11";
   #  });
 in {
-  nixpkgs.overlays = [niri.overlays.niri];
-  programs.niri.package = pkgs.niri-unstable;
+  #nixpkgs.overlays = [niri.overlays.niri];
+  nixpkgs.overlays = [ niri-nix.overlays.niri-nix ];
+  #programs.niri.package = pkgs.niri-unstable;
 
   imports = [
     # Include the results of the hardware scan.
@@ -70,7 +71,7 @@ in {
       vim.vimAlias = true;
       vim = {
         diagnostics.enable = true;
-        binds.cheatsheet.enable = true;
+        #binds.cheatsheet.enable = true;
         #binds.whichKey.enable = true;
 
         #        lineNumberMode = "none";
@@ -80,7 +81,7 @@ in {
           name = "everforest";
           style = "hard"; # or "soft" / "medium"
         };
-        mini.tabline.enable = true;
+        #mini.tabline.enable = true;
         #        terminal.toggleterm.enable = true;
         #        filetree.neo-tree.enable = true;
 
@@ -92,16 +93,16 @@ in {
         #        };
         ui = {
           #          colorful-menu-nvim.enable = true;
-          noice.enable = true;
-          dropbar-nvim.enable = true;
-          illuminate.enable = true;
-          ui2.enable = true;
+          #noice.enable = true;
+          #dropbar-nvim.enable = true;
+          #illuminate.enable = true;
+          #ui2.enable = true;
         };
         #        statusline.lualine.activeSection.b = [];
         #        statusline.lualine.activeSection.c = [];
         telescope.enable = true;
-        autocomplete.nvim-cmp.enable = true;
-        statusline.lualine.enable = true;
+        #autocomplete.nvim-cmp.enable = true;
+        #statusline.lualine.enable = true;
         languages = {
           enableTreesitter = true;
           enableExtraDiagnostics = true;
@@ -125,6 +126,12 @@ in {
               "deadnix"
             ];
           };
+
+	  python = {
+		enable = true; 	
+		format.enable = true;
+		lsp.enable = true;
+	  };
 
           # -----------------
           # DART / FLUTTER
@@ -169,7 +176,7 @@ in {
         lsp = {
           enable = true;
           lspsaga.enable = true;
-          formatOnSave = true;
+          #formatOnSave = true;
           #presets.dart.enable = true;
         };
       };
@@ -435,7 +442,7 @@ in {
   environment.systemPackages = with pkgs; [
     clang
     clang-tools
-
+    unzip
     fzf
     thunar
     gtk3

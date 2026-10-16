@@ -5,10 +5,10 @@
 
     #niri.url = "path:/home/fed/niri-flake";
     #niri.url = "github:sodiboo/niri-flake";
-    niri = {
-      url = "github:sodiboo/niri-flake/main";
-      #inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #niri = {
+    #  url = "github:sodiboo/niri-flake/main";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
     nvf = {
       url = "github:NotAShelf/nvf";
       # If you are not running an unstable channel of nixpkgs, select the corresponding branch of Nixvim.
@@ -34,36 +34,35 @@
     #url = "github:noctalia-dev/noctalia";
     #inputs.nixpkgs.follows = "nixpkgs";
     #};
-    #niri-nix = {
-    #  url = "git+https://codeberg.org/BANanaD3V/niri-nix";
-
-    #inputs.nixpkgs.follows = "nixpkgs";
-    #};
+    niri-nix = {
+      url = "git+https://codeberg.org/BANanaD3V/niri-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     self,
     nixpkgs,
-    niri,
+    #niri,
     dms,
     dms-plugin-registry,
     gram-extensions,
-    #niri-nix,
+    niri-nix,
     #noctalia,
     nvf,
     ...
   }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = {inherit niri dms-plugin-registry dms gram-extensions;};
+      specialArgs = {inherit dms-plugin-registry dms gram-extensions niri-nix;};
 
       modules = [
-        #niri-nix.nixosModules.default
+        niri-nix.nixosModules.default
         #nixvim.nixosModules.nixvim
         dms-plugin-registry.nixosModules.default
         nvf.nixosModules.default
         #noctalia.nixosModules.default
-        niri.nixosModules.niri
+        #niri.nixosModules.niri
 
         ./configuration.nix
       ];
