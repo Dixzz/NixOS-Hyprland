@@ -338,7 +338,8 @@ keymaps = [
   #services.thermald.enable = true;
 
   # Set your time zone.
-  time.timeZone = "Asia/Kolkata";
+  #time.timeZone = "Asia/Kolkata";
+  time.timeZone = "UTC";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_IN";
