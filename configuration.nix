@@ -203,6 +203,15 @@ keymaps = [
             ];
           };
 
+          assembly = {
+            enable = true;
+            format.enable = true;
+            lsp.enable = true;
+
+            treesitter.enable = true;
+
+          };
+
           python = {
             enable = true;
             format.enable = true;
@@ -523,6 +532,7 @@ keymaps = [
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    poppler-utils
     clang
     clang-tools
     unzip
